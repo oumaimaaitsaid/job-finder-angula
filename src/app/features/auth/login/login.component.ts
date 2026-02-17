@@ -22,6 +22,22 @@ export class LoginComponent {
 
   errorMessage: string = '';
 
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.authService.login(email, password).subscribe({
+        next: (user) => {
+          if (user) {
 
+            this.router.navigate(['/home']);
+          } else {
+            this.errorMessage = 'Email ou password incorrect';
+          }
+        },
+        error: (err) => {
+          this.errorMessage = 'Erreur Connexion de la Serveur ';
+        }
+      });
+    }
   }
 }
