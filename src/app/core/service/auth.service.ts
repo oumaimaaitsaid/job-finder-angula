@@ -40,7 +40,11 @@ logout(){
   }
 
 
-
+//getCurrentUser
+getCurrentUser() :User|null{
+  const user = localStorage.getItem('currentUser');
+  return user ?JSON.parse(user);
+  }
 
 
 
