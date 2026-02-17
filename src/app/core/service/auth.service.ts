@@ -18,6 +18,20 @@ register(user User):Observable<User>{
   return this.http.post<User>(this.apiUrl,user);
   }
 
+//connexion
+
+login(email:string,mdp:string) :Observable<User | null>
+{
+return  this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
+  map(users=>{
+    const user =users[0];
+    if(user && user.password ==mdp){
+      const {password, ...userWithoutPassword}= user;
+      localStorage.setItem('currentUser',JSON.strinfy(userWithoutPassword));
+      return userWithoutPassword;
+      });
+return null;
+  }
 
 
 
