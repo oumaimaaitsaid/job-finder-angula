@@ -11,6 +11,12 @@ export class AuthService {
  private http= inject(HttpClient);
  private apiUrl= 'http://localhost:3000/users';
 }
+//inscription
+
+register(user User):Observable<User>{
+
+  return this.http.post<User>(this.apiUrl,user);
+  }
 
 
 
