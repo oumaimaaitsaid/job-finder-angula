@@ -3,9 +3,14 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  `,
+  styles: []
 })
 export class AppComponent {
   title = 'job-finder-angular';

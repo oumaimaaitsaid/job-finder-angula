@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "nom": "Test",
+      "prenom": "User",
+      "email": "test@mail.com",
+      "password": "password123"
+    }
+  ],
+  "favoritesOffers": [],
+  "applications": []
+}
