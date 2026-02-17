@@ -33,6 +33,12 @@ return  this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
 return null;
   }
 
+//logout
+
+logout(){
+  return localStorage.removeItem('currentUser');
+  }
+
 
 
 
