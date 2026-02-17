@@ -11,8 +11,17 @@ import { AuthService } from '../../../core/service/auth.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
+  private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  loginForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+
+  errorMessage: string = '';
 
 
-
-
+  }
 }
