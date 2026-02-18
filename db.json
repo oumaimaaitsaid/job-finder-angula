@@ -6,6 +6,13 @@
       "prenom": "User",
       "email": "test@mail.com",
       "password": "password123"
+    },
+    {
+      "nom": "oumaima",
+      "prenom": "ait said",
+      "email": "oumaimaaitsaid.dev@gmail.com",
+      "password": "oumaima123",
+      "id": "C7RdnqX"
     }
   ],
   "favoritesOffers": [],
