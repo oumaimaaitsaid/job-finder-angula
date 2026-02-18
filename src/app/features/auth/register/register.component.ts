@@ -13,6 +13,9 @@ import{ AuthService } from '../../../core/service/auth.service';
 })
 export class RegisterComponent {
 
+private fb = inject(FormBuilder);
+private authService = inject(AuthService);
+private router = inject(Router);
 
 
 
