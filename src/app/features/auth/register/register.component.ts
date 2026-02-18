@@ -17,6 +17,13 @@ private fb = inject(FormBuilder);
 private authService = inject(AuthService);
 private router = inject(Router);
 
+registerForm : FormGroup = this.fb.group(
+   {
+    nom: ['', Validators.required],
+    prenom : ['', Validators.required],
+    email : ['',[ Validators.required, Validators.email]],
+    password : ['', [Validators.required, Validators.minLength(6)] ]
+     });
 
 
 }
