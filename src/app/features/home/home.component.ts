@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   searchTerm: string = '';
   loading: boolean = true;
 
+  ngOnInit() {
+    this.loadJobs();
+  }
 
 
 
