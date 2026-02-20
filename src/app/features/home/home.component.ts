@@ -24,7 +24,20 @@ export class HomeComponent implements OnInit {
     this.loadJobs();
   }
 
-
+  loadJobs() {
+    this.loading = true;
+    this.jobService.getJobs().subscribe({
+      next: (data) => {
+        this.jobs = data;
+        this.filteredJobs = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Erreur API:', err);
+        this.loading = false;
+      }
+    });
+  }
 
 
 
