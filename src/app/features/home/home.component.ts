@@ -46,5 +46,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
+  }
 }
