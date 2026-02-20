@@ -31,5 +31,11 @@ private apiUrl= 'https://www.arbeitnow.com/api/job-board-api';
    }
 
 
+ searchJobs(keyword: string): Observable <any[]> {
+   return this.getJobs().pipe (
+  map(jobs => jobs.filter (job => job.title.toLowerCase().includes(keyword.toLowerCase() )
+  ))
+     );
 
+   }
 }
