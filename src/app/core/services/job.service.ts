@@ -9,6 +9,8 @@ export class JobService {
 
 private http = inject(HttpClient);
 
+private apiUrl= 'https://www.arbeitnow.com/api/job-board-api';
+
 
 
 
