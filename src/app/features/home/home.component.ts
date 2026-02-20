@@ -40,6 +40,11 @@ export class HomeComponent implements OnInit {
   }
 
 
+  onSearch() {
+    this.filteredJobs = this.jobs.filter(job =>
+      job.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 
 
 }
