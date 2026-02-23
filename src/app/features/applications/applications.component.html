@@ -1,0 +1,97 @@
+<div class="min-h-screen bg-gray-50 p-4 md:p-10">
+  <div class="max-w-7xl mx-auto">
+
+    <header class="mb-12">
+      <h1 class="text-4xl font-black text-gray-900 tracking-tighter italic">Suivi <span class="text-blue-600">ajiTkhdem</span></h1>
+      <p class="text-gray-500 font-medium text-sm mt-1">Gérez l'avancement de vos candidatures en temps réel.</p>
+    </header>
+
+    <div class="flex flex-col lg:flex-row gap-6 justify-center items-start" cdkDropListGroup>
+
+      <div class="bg-[#F1F5F9] p-5 rounded-[2.5rem] w-full lg:w-1/3 min-h-[600px] shadow-sm border border-gray-200/50">
+        <div class="flex justify-between items-center mb-6 px-3">
+          <h2 class="font-black text-gray-500 uppercase text-[11px] tracking-[0.2em] flex items-center gap-2">⏳ En attente</h2>
+          <span class="bg-gray-400 text-white px-3 py-0.5 rounded-full text-[10px] font-bold">{{pending.length}}</span>
+        </div>
+
+        <div cdkDropList [cdkDropListData]="pending" (cdkDropListDropped)="drop($event, 'en_attente')" class="space-y-4 min-h-[500px]">
+          <div *ngFor="let app of pending" cdkDrag class="bg-white p-5 rounded-2xl shadow-sm border-l-[6px] border-gray-400 group cursor-grab active:cursor-grabbing hover:shadow-md transition-all duration-300">
+            <p class="font-black text-gray-800 text-sm mb-1">{{app.title}}</p>
+            <p class="text-xs text-blue-500 font-bold">{{app.company}}</p>
+            <p *ngIf="app.notes" class="text-[10px] bg-amber-50 p-3 mt-3 rounded-xl border border-amber-100 text-gray-600 italic leading-relaxed">"{{app.notes}}"</p>
+            <div class="flex gap-2 mt-4 opacity-0 group-hover:opacity-100 transition-opacity justify-end">
+              <button (click)="openNoteModal(app)" class="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">📝</button>
+              <button (click)="onDelete(app.id)" class="p-2 bg-red-50 text-red-500 rounded-lg hover:bg-red-600 hover:text-white transition">🗑️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#ECFDF5] p-5 rounded-[2.5rem] w-full lg:w-1/3 min-h-[600px] shadow-sm border border-green-100">
+        <div class="flex justify-between items-center mb-6 px-3">
+          <h2 class="font-black text-green-700 uppercase text-[11px] tracking-[0.2em] flex items-center gap-2">✅ Accepté</h2>
+          <span class="bg-green-500 text-white px-3 py-0.5 rounded-full text-[10px] font-bold">{{accepted.length}}</span>
+        </div>
+
+        <div cdkDropList [cdkDropListData]="accepted" (cdkDropListDropped)="drop($event, 'accepte')" class="space-y-4 min-h-[500px]">
+          <div *ngFor="let app of accepted" cdkDrag class="bg-white p-5 rounded-2xl shadow-sm border-l-[6px] border-green-500 group cursor-grab active:cursor-grabbing hover:shadow-md transition-all duration-300">
+            <p class="font-black text-gray-800 text-sm mb-1">{{app.title}}</p>
+            <p class="text-xs text-green-600 font-bold">{{app.company}}</p>
+            <p *ngIf="app.notes" class="text-[10px] bg-amber-50 p-3 mt-3 rounded-xl border border-amber-100 text-gray-600 italic leading-relaxed">"{{app.notes}}"</p>
+            <div class="flex gap-2 mt-4 opacity-0 group-hover:opacity-100 transition-opacity justify-end">
+              <button (click)="openNoteModal(app)" class="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">📝</button>
+              <button (click)="onDelete(app.id)" class="p-2 bg-red-50 text-red-500 rounded-lg hover:bg-red-600 hover:text-white transition">🗑️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#FEF2F2] p-5 rounded-[2.5rem] w-full lg:w-1/3 min-h-[600px] shadow-sm border border-red-100">
+        <div class="flex justify-between items-center mb-6 px-3">
+          <h2 class="font-black text-red-700 uppercase text-[11px] tracking-[0.2em] flex items-center gap-2">❌ Refusé</h2>
+          <span class="bg-red-500 text-white px-3 py-0.5 rounded-full text-[10px] font-bold">{{rejected.length}}</span>
+        </div>
+
+        <div cdkDropList [cdkDropListData]="rejected" (cdkDropListDropped)="drop($event, 'refuse')" class="space-y-4 min-h-[500px]">
+          <div *ngFor="let app of rejected" cdkDrag class="bg-white p-5 rounded-2xl shadow-sm border-l-[6px] border-red-500 opacity-70 group grayscale hover:grayscale-0 transition-all cursor-grab active:cursor-grabbing text-gray-500">
+            <p class="font-black text-gray-800 text-sm mb-1">{{app.title}}</p>
+            <p class="text-xs text-red-600 font-bold">{{app.company}}</p>
+            <div class="flex gap-2 mt-4 opacity-0 group-hover:opacity-100 transition-opacity justify-end">
+              <button (click)="onDelete(app.id)" class="p-2 bg-red-50 text-red-500 rounded-lg hover:bg-red-600 hover:text-white transition">🗑️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="isModalOpen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div class="bg-white w-full max-w-md rounded-[2rem] shadow-2xl overflow-hidden animate-slide-up border border-white/20">
+      <div class="p-8">
+        <h3 class="text-2xl font-black text-gray-900 mb-2">Note personnelle</h3>
+        <p class="text-gray-500 text-xs mb-6">Suivez l'état de cet entretien ou vos rappels.</p>
+        <textarea
+          [(ngModel)]="tempNote"
+          rows="5"
+          placeholder="Écrivez votre note ici..."
+          class="w-full p-5 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:ring-2 ring-blue-500 transition-all text-sm text-gray-700 shadow-inner">
+        </textarea>
+      </div>
+      <div class="flex gap-3 p-6 bg-gray-50">
+        <button (click)="closeModal()" class="flex-1 py-4 text-sm font-bold text-gray-500 hover:bg-gray-200 rounded-2xl transition">
+          Annuler
+        </button>
+        <button (click)="saveNote()" class="flex-1 py-4 bg-blue-600 text-white text-sm font-bold rounded-2xl hover:bg-blue-700 shadow-lg shadow-blue-100 transition">
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showToast" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[10000] animate-slide-up">
+    <div class="bg-gray-900 text-white px-8 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 min-w-[300px] justify-center">
+      <span class="font-bold text-sm tracking-wide text-center">{{ toastMsg }}</span>
+    </div>
+  </div>
+</div>
