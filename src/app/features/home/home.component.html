@@ -1,0 +1,35 @@
+<div class="bg-gray-50 min-h-screen">
+  <div class="bg-white py-20 px-4 border-b">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl font-black text-gray-900 mb-6 leading-tight">
+        Trouvez votre <span class="text-blue-500">job idéal</span> <br> en quelques clics.
+      </h1>
+
+      <div class="flex flex-col md:flex-row gap-2 bg-gray-100 p-3 rounded-2xl shadow-sm mt-10">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Quel métier ?" class="flex-1 px-6 py-4 bg-white rounded-xl outline-none shadow-sm focus:ring-2 ring-blue-500 transition">
+        <input type="text" [(ngModel)]="locationTerm" placeholder="Où ça ?" class="flex-1 px-6 py-4 bg-white rounded-xl outline-none shadow-sm focus:ring-2 ring-blue-500 transition">
+        <button (click)="onSearch()" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-black hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-200">
+          RECHERCHER
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto py-16 px-6">
+    <div *ngIf="!hasSearched && !loading" class="text-center py-20">
+      <div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">🔍</div>
+      <h3 class="text-2xl font-bold text-gray-800">Explorez les opportunités</h3>
+      <p class="text-gray-500 mt-2">Saisissez un poste pour commencer votre carrière.</p>
+    </div>
+
+    <div *ngIf="hasSearched && !loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <app-job-card *ngFor="let item of paginatedJobs" [job]="item"></app-job-card>
+    </div>
+
+    <div *ngIf="totalPages > 1 && !loading" class="flex justify-center mt-12 gap-2">
+      <button (click)="prevPage()" [disabled]="currentPage === 1" class="p-4 bg-white rounded-xl border hover:bg-gray-50 disabled:opacity-30">←</button>
+      <div class="px-6 py-4 bg-blue-500 text-white font-bold rounded-xl">{{currentPage}} / {{totalPages}}</div>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="p-4 bg-white rounded-xl border hover:bg-gray-50 disabled:opacity-30">→</button>
+    </div>
+  </div>
+</div>
