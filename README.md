@@ -1,59 +1,88 @@
-# JobFinderAngular
+# 🚀 JobFinder - Application de Recherche d'Emplois
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+JobFinder est une Single Page Application (SPA) moderne développée avec **Angular 19**, permettant aux chercheurs d'emploi de trouver des offres internationales, de gérer leurs favoris et de suivre leurs candidatures via un tableau de bord interactif.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🌟 Fonctionnalités Clés
 
-```bash
+### 🔍 Recherche & Filtrage
+- **Filtrage multicritères :** Recherche par mots-clés (titre) et localisation.
+- **Tri intelligent :** Affichage des offres de la plus récente à la plus ancienne.
+- **Pagination :** Navigation fluide avec 10 résultats par page.
+
+### ❤️ Gestion des Favoris (State Management)
+- **NgRx Store :** Utilisation de Redux pour une gestion d'état globale et réactive.
+- **Persistance :** Synchronisation en temps réel avec JSON Server.
+- **Validation :** Empêche les doublons et indicateur visuel (❤️/🤍).
+
+### 📋 Suivi des Candidatures (Kanban)
+- **Drag & Drop :** Interface interactive utilisant **Angular CDK** pour changer le statut des candidatures (En attente, Accepté, Refusé).
+- **CRUD Complet :** Ajouter, consulter et mettre à jour le statut des offres suivies.
+
+### 👤 Authentification & Profil
+- **Sécurité :** Protection des routes via `AuthGuard`.
+- **Profil Utilisateur :** Modification des informations personnelles et suppression de compte.
+- **Fake Auth :** Simulation d'authentification basée sur le `localStorage` et JSON Server.
+
+---
+
+## 🛠️ Stack Technique
+
+- **Frontend :** Angular 19 (Standalone Components)
+- **Gestion d'état :** NgRx (Store, Actions, Selectors, Effects)
+- **UI & Design :** Tailwind CSS (Responsive Design)
+- **Drag & Drop :** Angular CDK
+- **Backend (Simulé) :** JSON Server (API RESTful)
+- **HTTP :** RxJS & HttpClient
+
+---
+
+## 🏗️ Architecture du Projet
+
+Le projet suit une structure modulaire et organisée :
+```text
+src/app/
+├── core/            # Services, Guards, Interceptors, Models
+├── features/        # Composants par module (Home, Auth, Profile, etc.)
+├── shared/          # Composants réutilisables (JobCard, UI elements)
+└── store/           # NgRx Store (States, Reducers, Actions, Effects)
+ 
+``` 
+## 🚀 Installation et Démarrage
+
+**1. Cloner le projet**
+
+``
+git clone [https://github.com/votre-username/job-finder-angular.git](https://github.com/votre-username/job-finder-angular.git)
+cd job-finder-angular
+``
+
+**2. Installer les dépendances**
+
+``
+npm install --legacy-peer-deps
+``
+
+**3. Lancer JSON Server**
+     Ouvrez un terminal et lancez l'API simulée :
+
+``
+npx json-server --watch db.json --port 3000
+``
+
+**4. Lancer l'application Angular**
+Dans un autre terminal :
+
+``
 ng serve
-```
+``
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📝 Justification Technique : LocalStorage vs SessionStorage
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Pour ce projet, nous avons opté pour le LocalStorage afin de garantir une expérience utilisateur persistante. Contrairement au SessionStorage qui se vide à la fermeture de l'onglet, le LocalStorage permet à l'utilisateur de rester connecté d'une session à l'autre, ce qui correspond aux standards des plateformes de recrutement modernes.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 👨‍💻 Développé par
+Oumaima Ait Said - Développeuse Frontend Angular

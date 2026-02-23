@@ -3,10 +3,11 @@
 }
 
 @keyframes slideUp {
-  from { transform: translate(-50%, 50px); opacity: 0; }
+  from { transform: translate(-50%, 60px); opacity: 0; }
   to { transform: translate(-50%, 0); opacity: 1; }
 }
 
-button:disabled {
-  cursor: not-allowed;
+/* Accent for the form */
+input:focus {
+  transform: translateY(-2px);
 }

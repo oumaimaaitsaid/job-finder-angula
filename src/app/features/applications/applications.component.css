@@ -1,0 +1,23 @@
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translate(-50%, 60px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-radius: 1.5rem;
+  opacity: 0.95;
+  background-color: white;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.2;
+}
+
+.bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.6);
+}

@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  template: `
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  `,
-  styles: []
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'job-finder-angular';
+
+private router = inject(Router);
+
+  get isLoggedIn(): boolean {
+    return localStorage.getItem('currentUser') !== null;
+  }
+  logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = '/login';
+  }
 }

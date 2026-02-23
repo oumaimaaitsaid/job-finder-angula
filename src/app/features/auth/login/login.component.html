@@ -1,41 +1,44 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-  <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
-    <div class="text-center mb-8">
-      <h2 class="text-3xl font-bold text-blue-600 italic">JobFinder</h2>
-      <p class="text-gray-500 mt-2">Connectez-vous pour trouver votre job</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+  <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-10 transition-all duration-500 hover:shadow-xl">
+
+    <div class="text-center mb-10">
+      <h1 class="text-4xl font-black text-gray-900 tracking-tighter italic">aji<span class="text-blue-600">Tkhdem</span></h1>
+      <p class="text-gray-400 font-medium text-sm mt-2">Heureux de vous revoir ! 👋</p>
     </div>
 
-    <div *ngIf="errorMessage" class="mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm">
-      {{ errorMessage }}
+    <div *ngIf="errorMessage" class="mb-6 p-4 bg-red-50 text-red-600 rounded-2xl text-xs font-bold border border-red-100 animate-slide-up">
+      ⚠️ {{ errorMessage }}
     </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Email</label>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-5">
+      <div class="space-y-1">
+        <label class="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Email professionnel</label>
         <input type="email" formControlName="email"
-               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-               placeholder="votre@email.com">
-        <span *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']" class="text-xs text-red-500">
-          Email Incorrect
+               class="w-full p-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:ring-2 ring-blue-500 outline-none transition-all font-medium text-gray-700 placeholder:text-gray-300"
+               placeholder="nom@exemple.com">
+        <span *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']" class="text-[10px] text-red-500 font-bold ml-1">
+          L'adresse email est invalide
         </span>
       </div>
 
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Mot de passe</label>
+      <div class="space-y-1">
+        <label class="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Mot de passe</label>
         <input type="password" formControlName="password"
-               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+               class="w-full p-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:ring-2 ring-blue-500 outline-none transition-all font-medium text-gray-700 placeholder:text-gray-300"
                placeholder="••••••••">
       </div>
 
       <button type="submit" [disabled]="loginForm.invalid"
-              class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray-400">
+              class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-sm hover:bg-blue-700 shadow-lg shadow-blue-100 transition-all disabled:bg-gray-200 disabled:shadow-none uppercase tracking-widest mt-4">
         Se connecter
       </button>
     </form>
 
-    <div class="mt-6 text-center text-sm text-gray-600">
-      Pas de compte ?
-      <a routerLink="/register" class="text-blue-600 font-bold hover:underline">S'inscrire</a>
+    <div class="mt-8 text-center">
+      <p class="text-sm text-gray-500 font-medium">
+        Pas encore de compte ?
+        <a routerLink="/register" class="text-blue-600 font-black hover:text-blue-800 transition ml-1">S'inscrire</a>
+      </p>
     </div>
   </div>
 </div>

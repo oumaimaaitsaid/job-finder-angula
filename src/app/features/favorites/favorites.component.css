@@ -7,6 +7,6 @@
   to { transform: translate(-50%, 0); opacity: 1; }
 }
 
-button:disabled {
-  cursor: not-allowed;
+.bg-white:hover {
+  transform: translateY(-2px);
 }

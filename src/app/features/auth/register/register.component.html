@@ -1,40 +1,43 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-  <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
-    <div class="text-center mb-8">
-      <h2 class="text-3xl font-bold text-blue-600 italic">Créer un compte</h2>
-      <p class="text-gray-500 mt-2">Rejoignez JobFinder pour trouver votre job</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">
+  <div class="max-w-lg w-full bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-10 transition-all duration-500 hover:shadow-xl">
+
+    <div class="text-center mb-10">
+      <h1 class="text-4xl font-black text-gray-900 tracking-tighter italic">aji<span class="text-blue-600">Tkhdem</span></h1>
+      <p class="text-gray-400 font-medium text-sm mt-2">Créez votre compte en quelques secondes</p>
     </div>
 
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-5">
       <div class="grid grid-cols-2 gap-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Nom</label>
-          <input type="text" formControlName="nom" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none">
+        <div class="space-y-1">
+          <label class="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Nom</label>
+          <input type="text" formControlName="nom" class="w-full p-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:ring-2 ring-blue-500 outline-none transition-all font-medium text-gray-700">
         </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Prénom</label>
-          <input type="text" formControlName="prenom" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none">
+        <div class="space-y-1">
+          <label class="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Prénom</label>
+          <input type="text" formControlName="prenom" class="w-full p-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:ring-2 ring-blue-500 outline-none transition-all font-medium text-gray-700">
         </div>
       </div>
 
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" formControlName="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="votre@email.com">
+      <div class="space-y-1">
+        <label class="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Email professionnel</label>
+        <input type="email" formControlName="email" class="w-full p-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:ring-2 ring-blue-500 outline-none transition-all font-medium text-gray-700" placeholder="nom@exemple.com">
       </div>
 
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Mot de passe</label>
-        <input type="password" formControlName="password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="••••••••">
+      <div class="space-y-1">
+        <label class="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Mot de passe</label>
+        <input type="password" formControlName="password" class="w-full p-4 bg-gray-50 border border-transparent rounded-2xl focus:bg-white focus:ring-2 ring-blue-500 outline-none transition-all font-medium text-gray-700" placeholder="••••••••">
       </div>
 
-      <button type="submit" [disabled]="registerForm.invalid" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray-400">
-        S'inscrire
+      <button type="submit" [disabled]="registerForm.invalid" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-sm hover:bg-blue-700 shadow-lg shadow-blue-100 transition-all disabled:bg-gray-200 disabled:shadow-none uppercase tracking-widest mt-4">
+        Créer mon compte
       </button>
     </form>
 
-    <div class="mt-6 text-center text-sm text-gray-600">
-      Déjà un compte ?
-      <a routerLink="/login" class="text-blue-600 font-bold hover:underline">Se connecter</a>
+    <div class="mt-8 text-center">
+      <p class="text-sm text-gray-500 font-medium">
+        Vous avez déjà un compte ?
+        <a routerLink="/login" class="text-blue-600 font-black hover:text-blue-800 transition ml-1">Se connecter</a>
+      </p>
     </div>
   </div>
 </div>

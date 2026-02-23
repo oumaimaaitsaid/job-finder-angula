@@ -1,1 +1,44 @@
-<router-outlet></router-outlet>
+<nav class="bg-white shadow-sm border-b px-6 py-3 flex justify-between items-center sticky top-0 z-50">
+  <div class="flex items-center gap-8">
+    <div class="flex items-center gap-2 cursor-pointer" routerLink="/home">
+      <div class="w-10 h-10 bg-blue-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-100">
+        <img src="assets/logo-icon.png" alt="Logo" class="w-6 h-6">
+      </div>
+      <span class="text-2xl font-black tracking-tighter text-gray-800">aji<span class="text-blue-500">Tkhdem</span></span>
+    </div>
+
+    <div *ngIf="isLoggedIn" class="hidden md:flex gap-6">
+      <a routerLink="/home" routerLinkActive="text-blue-500 border-b-2 border-blue-500" class="text-gray-600 font-bold py-2 hover:text-blue-500 transition text-sm">Accueil</a>
+      <a routerLink="/favorites" routerLinkActive="text-blue-500 border-b-2 border-blue-500" class="text-gray-600 font-bold py-2 hover:text-blue-500 transition text-sm">Favoris</a>
+      <a routerLink="/applications" routerLinkActive="text-blue-500 border-b-2 border-blue-500" class="text-gray-600 font-bold py-2 hover:text-blue-500 transition text-sm">Candidatures</a>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <ng-container *ngIf="isLoggedIn">
+      <button routerLink="/profiles" class="text-gray-500 hover:bg-gray-100 p-2.5 rounded-xl transition text-xl">
+        👤
+      </button>
+      <button (click)="logout()"
+              class="bg-blue-600 text-white font-black px-6 py-2.5 rounded-xl hover:bg-blue-700 transition-all shadow-md shadow-blue-100 text-xs tracking-widest uppercase">
+        Déconnexion
+      </button>
+    </ng-container>
+
+    <button *ngIf="!isLoggedIn" routerLink="/login"
+            class="bg-blue-600 text-white font-black px-6 py-2.5 rounded-xl hover:bg-blue-700 transition-all shadow-md shadow-blue-100 text-xs tracking-widest uppercase">
+      Se connecter
+    </button>
+  </div>
+</nav>
+
+<main class="min-h-screen">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="bg-white border-t py-12 mt-20">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <span class="text-2xl font-black text-gray-300 tracking-tighter">aji<span class="text-blue-300">Tkhdem</span></span>
+    <p class="text-gray-400 text-xs mt-3 font-medium uppercase tracking-widest italic">© 2026 Plateforme de recrutement. Tous droits réservés.</p>
+  </div>
+</footer>
