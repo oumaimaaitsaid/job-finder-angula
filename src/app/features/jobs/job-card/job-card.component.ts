@@ -22,7 +22,7 @@ export class JobCardComponent implements OnInit {
 
   isAlreadyFavorite$: Observable<boolean> = of(false);
 
-  // Notification Toast Logic
+
   showToast = false;
   toastMsg = '';
   toastType: 'success' | 'error' | 'info' = 'success';

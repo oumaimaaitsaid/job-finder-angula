@@ -31,22 +31,17 @@
       "company": "Veli",
       "location": "Kassel",
       "id": 2
-    }
-  ],
-  "applications": [
+    },
     {
       "userId": "C7RdnqX",
       "offerId": "creative-strategist-100-remote-fitness-brand-hq-germany-dachau-343433",
-      "apiSource": "arbeitnow",
       "title": "Creative Strategist (m/w/d) | 100% Remote | Fitness-Brand HQ Germany",
       "company": "HQ Sports GmbH",
       "location": "Dachau",
-      "url": "https://www.arbeitnow.com/jobs/companies/hq-sports-gmbh/creative-strategist-100-remote-fitness-brand-hq-germany-dachau-343433",
-      "status": "refuse",
-      "notes": "deja refuser",
-      "dateAdded": "2026-02-20T22:14:48.767Z",
-      "id": 2
-    },
+      "id": 3
+    }
+  ],
+  "applications": [
     {
       "userId": "C7RdnqX",
       "offerId": "remote-senior-solutions-architect-berlin-32537",
@@ -55,33 +50,20 @@
       "company": "Automat-it",
       "location": "Berlin",
       "url": "https://www.arbeitnow.com/jobs/companies/automat-it/remote-senior-solutions-architect-berlin-32537",
-      "status": "refuse",
+      "status": "accepte",
       "notes": "",
       "dateAdded": "2026-02-21T20:58:22.351Z",
       "id": 3
     },
     {
       "userId": "C7RdnqX",
-      "offerId": "creative-strategist-100-remote-fitness-brand-hq-germany-dachau-343433",
-      "apiSource": "arbeitnow",
-      "title": "Creative Strategist (m/w/d) | 100% Remote | Fitness-Brand HQ Germany",
-      "company": "HQ Sports GmbH",
-      "location": "Dachau",
-      "url": "https://www.arbeitnow.com/jobs/companies/hq-sports-gmbh/creative-strategist-100-remote-fitness-brand-hq-germany-dachau-343433",
-      "status": "en_attente",
-      "notes": "oumaima",
-      "dateAdded": "2026-02-21T21:03:19.401Z",
-      "id": 4
-    },
-    {
-      "userId": "C7RdnqX",
       "offerId": "remote-senior-solutions-architect-berlin-32537",
       "apiSource": "arbeitnow",
       "title": "Senior Solutions Architect",
       "company": "Automat-it",
       "location": "Berlin",
       "url": "https://www.arbeitnow.com/jobs/companies/automat-it/remote-senior-solutions-architect-berlin-32537",
-      "status": "refuse",
+      "status": "en_attente",
       "notes": "",
       "dateAdded": "2026-02-23T09:39:16.975Z",
       "id": 5
@@ -94,10 +76,23 @@
       "company": "xHeron Solutions",
       "location": "Berlin",
       "url": "https://www.arbeitnow.com/jobs/companies/xheron-solutions/operations-guest-communications-associate-berlin-202977",
-      "status": "en_attente",
-      "notes": "",
+      "status": "accepte",
+      "notes": "oumaima",
       "dateAdded": "2026-02-23T09:42:02.825Z",
       "id": 6
+    },
+    {
+      "userId": "C7RdnqX",
+      "offerId": "creative-strategist-100-remote-fitness-brand-hq-germany-dachau-343433",
+      "apiSource": "arbeitnow",
+      "title": "Creative Strategist (m/w/d) | 100% Remote | Fitness-Brand HQ Germany",
+      "company": "HQ Sports GmbH",
+      "location": "Dachau",
+      "url": "https://www.arbeitnow.com/jobs/companies/hq-sports-gmbh/creative-strategist-100-remote-fitness-brand-hq-germany-dachau-343433",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-23T14:16:15.241Z",
+      "id": 7
     }
   ]
 }

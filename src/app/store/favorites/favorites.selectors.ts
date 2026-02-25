@@ -9,6 +9,8 @@ export const selectAllFavorites = createSelector(
   (state) => state.favorites
 );
 
+
+
 export const isFavorite = (offerId: string) => createSelector(
   selectAllFavorites,
   (favorites) => favorites.some(f => f.offerId === offerId)
